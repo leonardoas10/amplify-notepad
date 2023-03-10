@@ -41,10 +41,13 @@ class Notepad extends Component {
         this.getNotes();
         await this.getUsername();
 
-        this.createNoteListener = API.graphql(
-            graphqlOperation(onCreateNote, { owner: this.state.username })
-        ).subscribe({
+        this.createNoteListener = await API.graphql({
+            query: onCreateNote,
+            variables: { owner: this.state.username },
+            authMode: 'AMAZON_COGNITO_USER_POOLS',
+        }).subscribe({
             next: (noteData) => {
+                console.log('llego por subscription');
                 const newNote = noteData.value.data.onCreateNote;
                 const prevNotes = this.state.notes.filter(
                     (note) => note.id !== newNote.id
@@ -54,9 +57,15 @@ class Notepad extends Component {
             },
         });
 
-        this.deleteNoteListener = API.graphql(
-            graphqlOperation(onDeleteNote, { owner: this.state.username })
-        ).subscribe({
+        // this.deleteNoteListener = API.graphql(
+        //     graphqlOperation(onDeleteNote, { owner: this.state.username })
+        // ).
+
+        this.deleteNoteListener = await API.graphql({
+            query: onDeleteNote,
+            variables: { owner: this.state.username },
+            authMode: 'AMAZON_COGNITO_USER_POOLS',
+        }).subscribe({
             next: (noteData) => {
                 const deletedNote = noteData.value.data.onDeleteNote;
                 const updatedNotes = this.state.notes.filter(
@@ -100,7 +109,12 @@ class Notepad extends Component {
     };
 
     getNotes = async () => {
-        const resp = await API.graphql(graphqlOperation(listNotes));
+        // const resp = await API.graphql(graphqlOperation(listNotes));
+
+        const resp = await API.graphql({
+            query: listNotes,
+            authMode: 'AMAZON_COGNITO_USER_POOLS',
+        });
         const updatedNotes = resp.data.listNotes.items;
         this.setState({ notes: updatedNotes });
     };
@@ -121,8 +135,16 @@ class Notepad extends Component {
         if (this.hasExistingNote()) {
             this.handleUpdateNote();
         } else {
+            console.log('LLEGO handleAddNote!');
             const input = { note: this.state.form };
-            await API.graphql(graphqlOperation(createNote, { input: input }));
+            await API.graphql({
+                query: createNote,
+                variables: { input },
+                authMode: 'AMAZON_COGNITO_USER_POOLS',
+            });
+            // await API.graphql(graphqlOperation(createNote, { input: input }), {
+            //     authMode: 'AMAZON_COGNITO_USER_POOLS',
+            // });
             this.setState({
                 form: '',
             });
@@ -134,7 +156,12 @@ class Notepad extends Component {
             id: this.state.id,
             note: this.state.form,
         };
-        await API.graphql(graphqlOperation(updateNote, { input: input }));
+        // await API.graphql(graphqlOperation(updateNote, { input: input }));
+        await API.graphql({
+            query: updateNote,
+            variables: { input },
+            authMode: 'AMAZON_COGNITO_USER_POOLS',
+        });
     };
 
     handleCancelUpdate(e) {
@@ -153,7 +180,11 @@ class Notepad extends Component {
 
     handleDeleteNote = async (noteId) => {
         const input = { id: noteId };
-        await API.graphql(graphqlOperation(deleteNote, { input }));
+        await API.graphql({
+            query: deleteNote,
+            variables: { input },
+            authMode: 'AMAZON_COGNITO_USER_POOLS',
+        });
     };
 
     handleChangeNote(e) {

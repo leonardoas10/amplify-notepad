@@ -3,12 +3,30 @@
 input AMPLIFY {
     globalAuthRule: AuthRule = { allow: public }
 } # FOR TESTING ONLY!
-type Todo @model {
+type Note @model @auth(rules: [{ allow: owner }]) {
     id: ID!
-    name: String!
-    description: String
+    note: String!
+    owner: String!
 }
 
-type CreateNoteInput {
-    name: String
+input CreateNoteInput {
+    note: String!
+}
+
+input UpdateNoteInput {
+    id: String!
+    note: String!
+}
+
+input DeleteNoteInput {
+    id: String!
+}
+
+type RootMutation {
+    # createUser(userInput: UserInputData): User!
+    createNote(createNote: CreateNoteInput): Note!
+}
+
+schema {
+    mutation: RootMutation
 }
