@@ -1,12 +1,12 @@
 {
-  "AppSyncApiName": "notepad",
+  "AppSyncApiName": "amplifynotepad",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
   "AuthCognitoUserPoolId": {
     "Fn::GetAtt": [
-      "authnotepadba243e55",
+      "authamplifynotepad924a2897",
       "Outputs.UserPoolId"
     ]
   },
-  "AuthModeLastUpdated": "2023-03-10T17:41:53.965Z"
+  "AuthModeLastUpdated": "2023-03-11T00:55:12.493Z"
 }

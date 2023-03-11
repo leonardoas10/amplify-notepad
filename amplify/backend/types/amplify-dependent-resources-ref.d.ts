@@ -1,13 +1,12 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "notepad": {
+    "amplifynotepad": {
       "GraphQLAPIEndpointOutput": "string",
-      "GraphQLAPIIdOutput": "string",
-      "GraphQLAPIKeyOutput": "string"
+      "GraphQLAPIIdOutput": "string"
     }
   },
   "auth": {
-    "notepadba243e55": {
+    "amplifynotepad924a2897": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
       "IdentityPoolId": "string",

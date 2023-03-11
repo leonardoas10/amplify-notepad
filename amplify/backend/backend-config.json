@@ -1,31 +1,22 @@
 {
   "api": {
-    "notepad": {
+    "amplifynotepad": {
       "dependsOn": [
         {
           "attributes": [
             "UserPoolId"
           ],
           "category": "auth",
-          "resourceName": "notepadba243e55"
+          "resourceName": "amplifynotepad924a2897"
         }
       ],
       "output": {
         "authConfig": {
-          "additionalAuthenticationProviders": [
-            {
-              "apiKeyConfig": {
-                "apiKeyExpirationDate": "2023-03-17T18:14:10.205Z",
-                "apiKeyExpirationDays": 7,
-                "description": ""
-              },
-              "authenticationType": "API_KEY"
-            }
-          ],
+          "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authnotepadba243e55"
+              "userPoolId": "authamplifynotepad924a2897"
             }
           }
         }
@@ -35,7 +26,7 @@
     }
   },
   "auth": {
-    "notepadba243e55": {
+    "amplifynotepad924a2897": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {

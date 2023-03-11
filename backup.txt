@@ -7,26 +7,28 @@ type Note @model @auth(rules: [{ allow: owner }]) {
     id: ID!
     note: String!
     owner: String!
+    createdAt: String
+    updatedAt: String
 }
 
-input CreateNoteInput {
-    note: String!
-}
+# input CreateNoteInput {
+#     note: String!
+# }
 
-input UpdateNoteInput {
-    id: String!
-    note: String!
-}
+# input UpdateNoteInput {
+#     id: String!
+#     note: String!
+# }
 
-input DeleteNoteInput {
-    id: String!
-}
+# input DeleteNoteInput {
+#     id: String!
+# }
 
-type RootMutation {
-    # createUser(userInput: UserInputData): User!
-    createNote(createNote: CreateNoteInput): Note!
-}
+# type RootMutation {
+#     # createUser(userInput: UserInputData): User!
+#     createNote(createNote: CreateNoteInput): Note!
+# }
 
-schema {
-    mutation: RootMutation
-}
+# schema {
+#     mutation: RootMutation
+# }

@@ -2,7 +2,7 @@ import React from 'react';
 import Notepad from './Notepad';
 import './App.css';
 // prettier-ignore
-import { withAuthenticator, Authenticator, AmplifyTheme, Greetings } from "aws-amplify-react";
+import { withAuthenticator, Authenticator } from "@aws-amplify/ui-react";
 import { Auth } from 'aws-amplify';
 
 function App() {
@@ -16,10 +16,10 @@ function App() {
     return (
         <div>
             <Authenticator hideDefault={true}>
-                <Greetings
+                {/* <Greetings
                     inGreeting={() => 'Welcome, ' + currUser}
                     outGreeting="Please sign in..."
-                />
+                /> */}
             </Authenticator>
 
             <Notepad />
@@ -29,6 +29,6 @@ function App() {
 
 // class customGreetings extends
 
-const theme = { ...AmplifyTheme };
+// const theme = { ...AmplifyTheme };
 
-export default withAuthenticator(App, false, [], null, theme);
+export default withAuthenticator(App, false, [], null);

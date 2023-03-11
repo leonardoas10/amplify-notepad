@@ -41,7 +41,7 @@ class Notepad extends Component {
         this.getNotes();
         await this.getUsername();
 
-        this.createNoteListener = await API.graphql({
+        this.createNoteListener = API.graphql({
             query: onCreateNote,
             variables: { owner: this.state.username },
             authMode: 'AMAZON_COGNITO_USER_POOLS',
@@ -61,7 +61,7 @@ class Notepad extends Component {
         //     graphqlOperation(onDeleteNote, { owner: this.state.username })
         // ).
 
-        this.deleteNoteListener = await API.graphql({
+        this.deleteNoteListener = API.graphql({
             query: onDeleteNote,
             variables: { owner: this.state.username },
             authMode: 'AMAZON_COGNITO_USER_POOLS',

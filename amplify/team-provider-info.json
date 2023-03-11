@@ -1,22 +1,22 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-notepad-dev-135121-authRole",
-      "UnauthRoleArn": "arn:aws:iam::480650501656:role/amplify-notepad-dev-135121-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::480650501656:role/amplify-notepad-dev-135121-authRole",
+      "AuthRoleName": "amplify-amplifynotepad-dev-203626-authRole",
+      "UnauthRoleArn": "arn:aws:iam::480650501656:role/amplify-amplifynotepad-dev-203626-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::480650501656:role/amplify-amplifynotepad-dev-203626-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-notepad-dev-135121-deployment",
-      "UnauthRoleName": "amplify-notepad-dev-135121-unauthRole",
-      "StackName": "amplify-notepad-dev-135121",
-      "StackId": "arn:aws:cloudformation:us-east-1:480650501656:stack/amplify-notepad-dev-135121/cadcf820-bf63-11ed-942f-0e5e8ed969bb",
-      "AmplifyAppId": "d2d14ppygn4uac"
+      "DeploymentBucketName": "amplify-amplifynotepad-dev-203626-deployment",
+      "UnauthRoleName": "amplify-amplifynotepad-dev-203626-unauthRole",
+      "StackName": "amplify-amplifynotepad-dev-203626",
+      "StackId": "arn:aws:cloudformation:us-east-1:480650501656:stack/amplify-amplifynotepad-dev-203626/62288720-bf9c-11ed-9065-12aa38b05a9b",
+      "AmplifyAppId": "d2xqmmuokg9g5o"
     },
     "categories": {
       "auth": {
-        "notepadba243e55": {}
+        "amplifynotepad924a2897": {}
       },
       "api": {
-        "notepad": {}
+        "amplifynotepad": {}
       }
     }
   }
