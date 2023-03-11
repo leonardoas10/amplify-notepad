@@ -24,12 +24,3 @@ input UpdateNoteInput {
 input DeleteNoteInput {
     id: String!
 }
-
-# type RootMutation {
-#     # createUser(userInput: UserInputData): User!
-#     createNote(createNote: CreateNoteInput): Note
-# }
-
-# schema {
-#     mutation: RootMutation
-# }
